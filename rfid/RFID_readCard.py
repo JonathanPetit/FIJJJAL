@@ -38,7 +38,6 @@ try:
                         if not rdr.select_tag(uid):
                             # Auth for block 9 (block 1 of sector 2) using default shipping key A
                             if not rdr.card_auth(rdr.auth_a, 9, [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF], uid):
-                                # This will print something like (False, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
                                 
                                 # Read the entire block 9 (second argument is the informations)
                                 informations = rdr.read(9)[1]
@@ -65,6 +64,9 @@ try:
                                 GPIO.output(magnet, GPIO.HIGH)
                                 print("\nElectromagnet ON")
 
+                                # You can call the subprocess and verify the output value
+                                # That's the reason why there is a loop but here it doesn't have any sense
+                                # Improvement to do
                                 while(True):
                                     b = subprocess.call(["../ludovic/drone.exe", str(latitude), str(longitude)], shell = False)
 
