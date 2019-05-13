@@ -1,3 +1,20 @@
+# Motors #
+
+The drone we want to build here is a quadcopter, which mean that it need 4 Motors.
+We choose 4 Brushless DC Motor, because they are more efficient both in speed and in power consuming. The problem is that they are more expansive that brushed motors and they need an ESC to work properly. Despite of that, Brushless DC motors were chosen because they are a too important part of the project.
+
+To design the right motor, you need to pay attention to 2 main characteristics : Thrust and Kv
+
+The thrust of a motor can be found on the documentation, but it depends on the propellers you will use on your quadcopter.
+The Kv is the value which represent the number or Rotation per minute per Volt (RPM/V) the bigger your Kv is, the faster your motor will rotate.
+
+Having a high Kv value on your motor means that they will rotate faster, but they will only fit with small propeller, which will decrease the thrust of the motors.
+
+![picture alt](https://scontent.fbru1-1.fna.fbcdn.net/v/t1.15752-9/60094587_315442519124379_7267681935869083648_n.png?_nc_cat=102&_nc_ht=scontent.fbru1-1.fna&oh=3ff838e9238983a9baa4c6eb1c8befbf&oe=5D5FC84A)
+
+We need to find a compromise between the size of the propeller and the Kv value of the motors.
+We use motors of 900Kv value to have a big thrust with the propeller without a lot of speed.
+
 # ESC #
 
 
@@ -78,7 +95,6 @@ In the code, we use this function in **main.cpp** :
 void Calibration()
 ```
 /!\ Don't forget to add each motor you use in the function
-
 
 ## Author
 * **Ilias EL ABBASSI** - *Initial work* - [Babassi](https://github.com/Babassi)
