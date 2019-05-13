@@ -12,15 +12,15 @@ const int NDIR = 4;
 const int xDir[NDIR] = {1, 0, -1, 0};
 const int yDir[NDIR] = {0, 1, 0, -1};
 
-Pathfinding::Pathfinding(const loc_t &loc_start , const loc_t &loc_finish, int step) {
+Pathfinding::Pathfinding(const loc_t &loc_start , const loc_t &loc_finish) {
     this->loc_finish = loc_finish;
     this->loc_start = loc_start;
-    this->buildMap(loc_start, loc_finish, step);
+    this->buildMap(loc_start, loc_finish);
 }
 
-void Pathfinding::buildMap(const loc_t &loc_start , const loc_t &loc_finish, int step) {
-    this->XDIM = 100;
-    this->YDIM = 100;
+void Pathfinding::buildMap(const loc_t &loc_start , const loc_t &loc_finish) {
+    this->XDIM = loc_finish.x + 10;
+    this->YDIM = loc_finish.y + 10;
 }
 
 void Pathfinding::addObstacles(loc_t obstacle) {
@@ -32,13 +32,14 @@ string Pathfinding::aStar() {
     int openNodes[XDIM][YDIM];
     int dirMap[XDIM][YDIM];
     int squares[XDIM][YDIM];
-
-    for(std::vector<Node>::size_type i = 0; i != obstacles.size(); i++) {
-        squares[obstacles[i].x][obstacles[i].y] = 1;
-    }
     
     // list of open (not-yet-checked-out) nodes
     static priority_queue<Node> q[2]; 
+
+    //add obstacles to maps
+    for(std::vector<Node>::size_type i = 0; i != obstacles.size(); i++) {
+        squares[obstacles.at(i).x][obstacles.at(i).y] = 1;
+    } 
 
     // q index
     static int qi; 
@@ -64,7 +65,7 @@ string Pathfinding::aStar() {
  
     // A* search
     while(!q[qi].empty()) {
-        // get the current node w/ the lowest FValue
+        // get the current node w/ the lowest f_alue
         // from the list of open nodes
         pNode1 = new Node(q[qi].top().loc, q[qi].top().g_value, q[qi].top().f_value);
 
@@ -127,7 +128,7 @@ string Pathfinding::aStar() {
 
 		        // already in the open list
                 else if(openNodes[xNext][yNext] > pNode2->f_value) {
-                    // update the FValue info
+                    // update the f_alue info
                     openNodes[xNext][yNext] = pNode2->f_value;
 
                     // update the parent direction info,  mark its parent node direction
@@ -172,6 +173,11 @@ void Pathfinding::draw(string path) {
     for(int j = 0; j < XDIM; j++) {
         for(int i = 0; i < YDIM; i++) squares[i][j] = 0;
     }
+
+    for(std::vector<Node>::size_type i = 0; i != obstacles.size(); i++) {
+        squares[obstacles.at(i).x][obstacles.at(i).y] = 1;
+    } 
+
  
     cout << "path: " << path << endl;
 
@@ -180,7 +186,7 @@ void Pathfinding::draw(string path) {
         char c;
 	    int m,n;
         int x = loc_start.x;
-        int y = loc_finish.y;
+        int y = loc_start.y;
         squares[x][y] = 2;
 
         for(m = 0; m < path.length(); m++) {
