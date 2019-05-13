@@ -40,5 +40,3 @@ void Motor::setPWM(float value) {
 void Motor::setPin(float value) {
     this->pin = value;
 }
-
-}

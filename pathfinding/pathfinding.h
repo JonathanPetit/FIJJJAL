@@ -10,7 +10,7 @@
 class Pathfinding
 {
     public:
-        Pathfinding(const loc_t &locStart , const loc_t &locFinish, int step);
+        Pathfinding(const loc_t &locStart , const loc_t &locFinish);
 
         string aStar();
         void addObstacles(loc_t obstacle);
@@ -22,7 +22,7 @@ class Pathfinding
         std::vector<loc_t> obstacles;
 
     private:
-        void buildMap(const loc_t &loc_start , const loc_t &loc_finish, int step);
+        void buildMap(const loc_t &loc_start , const loc_t &loc_finish);
         loc_t loc_start;
         loc_t loc_finish;
 };

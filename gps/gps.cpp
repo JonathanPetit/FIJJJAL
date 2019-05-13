@@ -15,9 +15,9 @@ Gps::Gps() {
     serial = Serial();
 }
 
-//Init gps on serial port /dev/ttyAMA0(raspberry)
+//Init gps on serial port /dev/ttyS0(raspberry)
 void Gps::gpsInit() {
-    serial.serialInit("/dev/ttyAMA0");
+    serial.serialInit("/dev/ttyS0");
 }
 
 //Get location 

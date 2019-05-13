@@ -12,6 +12,7 @@ int main(void) {
     loc_t data;
 
     while (1) {
+        printf("%s", "ok");
         gps.gpsLocation(&data);
 
         printf("%lf %lf\n", data.latitude, data.longitude);

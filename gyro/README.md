@@ -33,3 +33,7 @@ to run :
 - g++ -o gyro *.cpp
 
 - ./gyro
+
+## Author
+* **Adrien Petit** - *Initial work* - [adrienpetit](https://github.com/adrienpetit)
+* **Jonathan Petit** - *Help to write code* - [JonathanPetit](https://github.com/JonathanPetit)
