@@ -41,5 +41,4 @@ void Motor::setPin(float value) {
     this->pin = value;
 }
 
-
 }
