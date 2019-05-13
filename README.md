@@ -13,7 +13,7 @@ The drone include a GPS module to locatate it. It have also a Pathfinding code t
 
 To detect obstacles, the drone have four ultrasound sensor. When it detect an object, it communicate with the pathfinding module to find an other path. 
 
-Please check each module to have more informations about the drone.
+Please check each module (table of contents) to have more informations about the drone.
 
 ## Structure of the project
 ![picture alt](doc/fijjal.png)
