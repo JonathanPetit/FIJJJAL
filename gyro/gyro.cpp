@@ -63,7 +63,7 @@ int Gyro::readAxis(char lsb_add, char msb_add){
 	read(this->file, res, 1);
 	char msb_res = res[0];
 
-	int axis = (lsb_res + msb_add);
+	int axis = (lsb_res + msb_res);
 	if(axis > 180)
 	{
 		axis -= 360;
