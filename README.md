@@ -21,3 +21,4 @@ Jonathan PETIT </br>
 [Motion Controller](./motionController/README.md)</br>
 [Motor](./motor/README.md)</br>
 [Ultrasound](./ultrasound/README.md)</br>
+[Gyroscope](./gyro/README.md)</br>
