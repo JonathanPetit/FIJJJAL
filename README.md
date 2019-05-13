@@ -14,7 +14,7 @@ Jonathan PETIT </br>
 [RFID](./rfid/readme.md) </br>
 [PID regulator](./pid/README.md) </br>
 [GPS](./gps/README.md) </br>
-[Pathfinding](./pathfinding/README.md)
+[Pathfinding](./pathfinding/README.md)</br>
 [Motion Controller](./motionController/README.md)</br>
 [Motor](./motor/README.md)</br>
 
