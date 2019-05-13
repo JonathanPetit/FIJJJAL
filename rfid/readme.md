@@ -4,7 +4,7 @@ This part has two files in Python, one for writing informations on a RFID card a
 
 ## Getting Started
 
-If you want to test the codes, download this project and go in this directory then follow this instructions.
+If you want to test the codes, download this project and go in this directory then follow these instructions.
 
 ### Prerequisites
 
@@ -33,7 +33,7 @@ You need to install these libraries :
 
 ### Connecting
 Connecting RC522 module to SPI is pretty easy. The following table come from [the library's Github](https://github.com/ondryaso/pi-rc522).
-If you want more informations, you can go check this Github.
+If you want more informations, you can check this Github.
 
 | Board pin name | Board pin | Physical RPi pin | RPi pin name |
 |----------------|-----------|------------------|--------------|
@@ -78,7 +78,7 @@ In this project, we used the most common card with a frequency of 13,56MHz.
 
 ### Structure
 
-A RFID card is divided in many sectors subdivided in blocks which is also subdivided in datas. <br>
+A RFID card is divided in many sectors subdivided in blocks which are also subdivided in datas. <br>
 There are : 
 * 16 sectors
 * 4 blocks per sector (64 in total)
@@ -92,15 +92,15 @@ To write on a card informations, you have to define the sector (in red) and the 
 
 `Don't write the block 0` because sometime it can't be modified because it contains the UID. Some cards allow to modify the UID and others don't.
 
-`Don't write the last block of each sector` because it can make the card unuseable (example : sector 1 block 7, sector 2 block 11, ...).
+`Don't write the last block of each sector` because it can make the card unusable (example : sector 1 block 7, sector 2 block 11, ...).
 
 This structure is very important because it determines the structure of the code.
 
 ### Encryption
 
-We can also encrypt the data that we put in the differents sectors. For this, we use two keys, a `key A` and a `key B`. Then, the person, who wants to read informations in a certain sector, has to have the correct key to decrypt them. Otherwise he can't read them.
+We can also encrypt the data that we put in the differents sectors. For this, we use two keys, a `key A` and a `key B`. Then, the person, who wants to read informations in a certain sector, must have the correct key to decrypt them. Otherwise he can't read them.
 
-By default these key has the value OxFF OxFF OxFF OxFF OxFF OxFF. We don't change it at this moment but it can be interesting to change them. In fact, it can prevent that anybody can read and write on the card.
+By default these keys have the value OxFF OxFF OxFF OxFF OxFF OxFF. We don't change them at this moment but it can be interesting to change them. In fact, it can prevent that anybody can read and write on the card.
 
 ### Important instructions
 
@@ -170,12 +170,12 @@ After the instanciation of an object RFID (object = RFID()), we can call methods
 
 ### RFID_writeCard
 
-The idea of this code is to run on another RFID reader to simulate a shop. The person asks for an item and this one is delivered a few days later by drone. <br>
+The idea of this code is to run on another RFID reader to simulate a shop. The person asks for an item and this one is delivered by a drone a few days later. <br>
 Then the person in the shop can launch this code to put the location of the customer's house on the tag which is going to be on the package and an unique UID on the RFID card of the customer which gives him the possibility to open the box.
 
 For this, we wait to detect a tag. When we detect it, we ask the seller to enter the latitude and the longitude where the customer want to recover his package. After that we make manipulations on them to fit the structure of the RFID tag that I explain above.
 
-We can only put in the RFID tag integer of 8 bits (value from 0 to 255). Then we split these numbers by the comma character and decompose the decimal parts two by two in three parts. We can't take by three numbers because the max value is then 999 and this value is not possible to put in the RFID tag. <br>
+We can only put in the RFID tag integer of 8 bits (value from 0 to 255). Then we split these numbers by the comma character and decompose the decimal parts two by two in three parts. We can't take by three numbers because the maximum value is then 999 and this value is not possible to put in the RFID tag. <br>
 We use the value 255 for positive and 0 for negative values.
 
 After that, we write on the RFID tag in a certain order :
@@ -191,9 +191,19 @@ The idea of this code is to run the other parts when the package is in the box.
 
 For this, we wait that the seller closes the door of the box under the drone. We detect it thanks to the switch. Once it's done, we check if there is a RFID tag. If it's ok, we read the informations on the card at the right block and reconstruct the latitude and the longitude. We activate the electromagnet to close the door and run the code with the correct parameters to start to fly.
 
-Once this code has finished that means that we arrived to the correct location. We wait for a card with the uid of the tag on the package at the block 9. If the customer scan his card, the electromagnet turn off and he can take his package. After 5 second, we redo all the routine.
+Once this code has finished that means that we arrived to the correct location. We wait for a card with the uid of the tag on the package at the block 9. If the customer scans his card, the electromagnet turns off and he can take his package. After 5 seconds, we redo all the routine.
 
 The part of the code for the return is missing because of a lack of time.
+
+## State of the art
+
+Everything works perfectly. 
+
+We can write on the tag the latitude and the longitude of the delivery place. We can also write the UID of this tag on the RFID card which is given to the customer.
+
+After checking if the door is closed, we can read the location and reconstruct the latitude and the longitude and send them to the other parts of the project. We can activate the electromagnet and if the drone has arrived at the location, we can desactivate it when the customer scans his card.
+
+Everything is integrated on the drone and works if we power the breadboard with a 5 Volt alimentation because the Raspberry didn't give enough current (you can put a battery or a voltage source for testing). That's the reason why we use a relay which allows us to use the current from the voltage source and to control if the electromagnet is powered with the Raspberry.
 
 ## Authors
 
