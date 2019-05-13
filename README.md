@@ -11,4 +11,5 @@ Jonathan PETIT </br>
 
 ## Table of contents
 [PID regulator](./pid/README.md) </br>
-[GPS](./gps/README.md)
+[GPS](./gps/README.md) </br>
+[Pathfinding](./pathfinding/README.md)
