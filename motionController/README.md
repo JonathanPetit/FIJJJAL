@@ -67,7 +67,10 @@ See more about motors at : [Gyro](/gyro/README.md)
 ## Connexion with the PID ##
 
 Normally in a 2D space,you have to initialize 2 pids for each axis so 6 pids.</br>
-From the Motioncontroller, we instanciate 4 motors to which we send instructions according to the direction we want to go. 
-The pids implemented are going to recalculate and correct the instructions(values sent to the ESC) to communicate to the motors continuously according to the gyro value and the wished value. 
+From the Motioncontroller, we instanciate 4 motors to which we send instructions according to the direction we want to go.
+
+The 2  PIDs implemented are going to recalculate and correct the instructions(values sent to the ESC) to communicate to the motors continuously according to the gyro value and the wished value.We decided to start by implementing only 2 pids , the roll and the pitch correction. The corrction on the Yaw will be implemented later when the drone is going toi quit it's testbench as for the correction for the altitude. 
+
+
 
 To see how the pid works, you can see [PID](/pid/README.md).
