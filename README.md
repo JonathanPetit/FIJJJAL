@@ -1,6 +1,9 @@
 # FIJJJAL
 Drone project for ECAM Brussels school
 
+## Structure of the projet
+![picture alt](doc/fijjal.png)
+
 ## Makers
 Julien BEARD </br>
 Fatine BEN MOUSSA </br>

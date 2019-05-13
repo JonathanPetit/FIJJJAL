@@ -78,3 +78,8 @@ In the code, we use this function in **main.cpp** :
 void Calibration()
 ```
 /!\ Don't forget to add each motor you use in the function
+
+
+## Author
+* **Ilias EL ABBASSI** - *Initial work* - [Babassi](https://github.com/Babassi)
+* **Jonathan Petit** - *Help to write code in c++* - [JonathanPetit](https://github.com/JonathanPetit)

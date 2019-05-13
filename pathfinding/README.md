@@ -47,4 +47,4 @@ $ ./pathfinding
 * Make a module with checkpoint array in parameter and the result is a array with the moving instruction for the drone.
 
 ## Author
-Jonathan Petit
+* **Jonathan Petit** - *Initial work* - [JonathanPetit](https://github.com/JonathanPetit)
