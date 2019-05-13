@@ -27,19 +27,16 @@ void Motor::stop() {
 //Control motor with PID
 void Motor::control(float setPoint, float input) {
     //Get output from PID
-    float ctrl = this->pid.calcPID(setPoint, input);
+    //float ctrl = this->pid.calcPID(setPoint, input);
     //Set PWM with output PID
-    this->setPWM(ctrl);
+    //this->setPWM(ctrl);
 }
 
 //Set PWM
-void Motor::setPWM(float value) {
+void Motor::setPWM(int value) {
     gpioServo(this->pin, value);
 }
 
-void Motor::setPin(float value) {
+void Motor::setPin(int value) {
     this->pin = value;
-}
-
-
 }

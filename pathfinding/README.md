@@ -45,3 +45,6 @@ $ ./pathfinding
 * The pathfinding must have a "step" parameter because if we have a big map, the search of the path take more times. If we have a step parameter the map will be small and the useless checkpoint will be remove.
 * For now, the result of the A* is a string with the direction. This result should be a array (path) with checkpoints (x, y, direction). 
 * Make a module with checkpoint array in parameter and the result is a array with the moving instruction for the drone.
+
+## Author
+Jonathan Petit

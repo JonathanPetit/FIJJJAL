@@ -44,9 +44,12 @@ You will see your data directly in console:
 50.850417, 4.454593</br>
 ...
 
-
 ## Tested components
-This library is tested with:
+This module is tested with:
 
  * Adafruit Ultimate GPS Breakout - 66 channel w/10 Hz updates - Version 3
  * Raspberry V3
+
+ ## Author
+
+Jonathan Petit
