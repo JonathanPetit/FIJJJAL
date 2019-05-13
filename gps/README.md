@@ -27,7 +27,7 @@ The [NMEA coordonates](https://en.wikipedia.org/wiki/NMEA_0183) is a standar spe
 * `gpsLocation(loc_t *coord)` Get coordonates location on serial bus and parse nmea format
 * `gpsConvert(double *latitude, char ns,  double *longitude, char we)` Convert degrees cordonates on decimals coordonates
 
-3. ***Struct***
+4. ***Struct***
 All struct (gpgpa, gprmc and loc) are in **struct.h**
 
 
